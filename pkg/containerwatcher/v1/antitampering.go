@@ -28,7 +28,7 @@ var restrictedMapsNames = []string{
 	"events",
 }
 
-func (ch *IGContainerWatcher) tracerantitamperingtypeEventCallback(event *tracerantitamperingtype.Event) {
+func (ch *IGContainerWatcher) tracerantitamperingEventCallback(event *tracerantitamperingtype.Event) {
 	if event.Type != types.NORMAL {
 		// dropped event
 		logger.L().Ctx(ch.ctx).Warning("tracerantitamperingtype tracer got drop events - we may miss some realtime data", helpers.Interface("event", event), helpers.String("error", event.Message))
@@ -102,7 +102,7 @@ func (ch *IGContainerWatcher) startantitamperingTracing() error {
 		RestrictedMapsNames: restrictedMapsNamesMap,
 	}
 
-	tracertracerantitamperingtype, err := tracerantitampering.NewTracer(tracerantitamperingConfig, ch.containerCollection, ch.tracerantitamperingtypeEventCallback)
+	tracertracerantitamperingtype, err := tracerantitampering.NewTracer(tracerantitamperingConfig, ch.containerCollection, ch.tracerantitamperingEventCallback)
 	if err != nil {
 		return fmt.Errorf("creating tracer: %w", err)
 	}
