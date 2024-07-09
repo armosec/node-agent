@@ -26,6 +26,10 @@ var restrictedMapsNames = []string{
 	"allowed_pids",
 	"restricted_maps_names",
 	"events",
+	"pid_by_tgid",
+	"gadget_sockets",
+	"ig_fa_records",
+	"ig_fa_pick",
 }
 
 func (ch *IGContainerWatcher) tracerantitamperingEventCallback(event *tracerantitamperingtype.Event) {
