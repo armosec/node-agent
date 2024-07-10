@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bufio"
 	"crypto/md5"
 	"crypto/sha1"
 	"crypto/sha256"
@@ -704,4 +705,46 @@ func TrimRuntimePrefix(id string) string {
 
 func GetContainerStatuses(podStatus v1.PodStatus) []v1.ContainerStatus {
 	return slices.Concat(podStatus.ContainerStatuses, podStatus.InitContainerStatuses, podStatus.EphemeralContainerStatuses)
+}
+
+// Function to check if a symbol exists in the kernel.
+func symbolExists(symbol string) bool {
+	file, err := os.Open("/proc/kallsyms")
+	if err != nil {
+		fmt.Println("Error opening /proc/kallsyms:", err)
+		return false
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		if strings.Contains(line, symbol) {
+			return true
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Error reading /proc/kallsyms:", err)
+		return false
+	}
+
+	return false
+}
+
+// Function to check if kernel has BTF
+func bpfHasKernelBTF() bool {
+	btfFile := "/sys/kernel/btf/vmlinux"
+	_, err := os.ReadFile(btfFile)
+	return err == nil
+}
+
+func IsLsmBpfEnabled() bool {
+	if !bpfHasKernelBTF() {
+		logger.L().Warning("bpf has no kernel BTF")
+		return false
+	}
+
+	// Check for the kernel symbol
+	return symbolExists("bpf_lsm_bpf")
 }

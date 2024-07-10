@@ -252,9 +252,13 @@ func (ch *IGContainerWatcher) startTracers() error {
 			return err
 		}
 
-		if err := ch.startantitamperingTracing(); err != nil {
-			logger.L().Error("error starting antitampering tracing", helpers.Error(err))
-			return err
+		if utils.IsLsmBpfEnabled() {
+			if err := ch.startantitamperingTracing(); err != nil {
+				logger.L().Error("error starting antitampering tracing", helpers.Error(err))
+				return err
+			}
+		} else {
+			logger.L().Warning("lsm_bpf tracing is not supported on this kernel")
 		}
 	}
 
