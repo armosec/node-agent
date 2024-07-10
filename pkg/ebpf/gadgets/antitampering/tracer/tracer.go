@@ -12,8 +12,6 @@ import (
 	"github.com/inspektor-gadget/inspektor-gadget/pkg/btfgen"
 	gadgetcontext "github.com/inspektor-gadget/inspektor-gadget/pkg/gadget-context"
 	"github.com/inspektor-gadget/inspektor-gadget/pkg/gadgets"
-	"github.com/kubescape/go-logger"
-	"github.com/kubescape/go-logger/helpers"
 	"github.com/kubescape/node-agent/pkg/ebpf/gadgets/antitampering/types"
 
 	eventtypes "github.com/inspektor-gadget/inspektor-gadget/pkg/types"
@@ -171,9 +169,6 @@ func (t *Tracer) run() {
 		if t.enricher != nil {
 			t.enricher.EnrichByMntNs(&event.CommonData, event.MountNsID)
 		}
-
-		// TODO: Remove after making sure the event fields are correctly set.
-		logger.L().Info("antitampering event", helpers.Interface("event", event))
 
 		t.eventCallback(&event)
 	}
