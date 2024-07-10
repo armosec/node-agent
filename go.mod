@@ -31,6 +31,7 @@ require (
 	github.com/spf13/afero v1.11.0
 	github.com/spf13/viper v1.18.2
 	github.com/stretchr/testify v1.9.0
+	github.com/u-root/u-root v0.14.0
 	go.opentelemetry.io/otel v1.26.0
 	go.opentelemetry.io/otel/trace v1.26.0
 	go.uber.org/multierr v1.11.0
@@ -132,6 +133,8 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.1-vault-5 // indirect
+	github.com/hugelgupf/go-shlex v0.0.0-20200702092117-c80c9d0918fa // indirect
+	github.com/hugelgupf/vmtest v0.0.0-20240216064925-0561770280a1 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jinzhu/copier v0.4.0 // indirect
@@ -189,6 +192,9 @@ require (
 	github.com/sylabs/squashfs v0.6.1 // indirect
 	github.com/syndtr/gocapability v0.0.0-20200815063812-42c35b437635 // indirect
 	github.com/therootcompany/xz v1.0.1 // indirect
+	github.com/u-root/gobusybox/src v0.0.0-20240225013946-a274a8d5d83a // indirect
+	github.com/u-root/mkuimage v0.0.0-20240225063926-11a3bcc79c2a // indirect
+	github.com/u-root/uio v0.0.0-20240209044354-b3d14b93376a // indirect
 	github.com/ulikunitz/xz v0.5.12 // indirect
 	github.com/uptrace/opentelemetry-go-extra/otelutil v0.2.4 // indirect
 	github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.4 // indirect
@@ -216,11 +222,13 @@ require (
 	golang.org/x/crypto v0.23.0 // indirect
 	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
 	golang.org/x/image v0.18.0 // indirect
+	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/oauth2 v0.20.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
 	golang.org/x/term v0.20.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
+	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 	google.golang.org/genproto v0.0.0-20240515191416-fc5f0ca64291 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240515191416-fc5f0ca64291 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240515191416-fc5f0ca64291 // indirect
@@ -238,6 +246,7 @@ require (
 	k8s.io/cri-api v0.30.1 // indirect
 	k8s.io/klog/v2 v2.120.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20240430033511-f0e62f92d13f // indirect
+	mvdan.cc/sh/v3 v3.7.0 // indirect
 	sigs.k8s.io/controller-runtime v0.18.2 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/kustomize/api v0.17.1 // indirect
